@@ -6,7 +6,8 @@
 
 # 실행
 
-![](../../ezgif-4-86e011434938.gif)
+![ezgif-4-86e011434938](https://user-images.githubusercontent.com/45571631/141652735-34521e20-60bf-45ec-a5d9-8d6b29de5d04.gif)
+
 
 # 기술
 
