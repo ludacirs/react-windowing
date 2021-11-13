@@ -23,6 +23,7 @@ export interface MockData {
 const FeedContainer = () => {
   const [data] = useFetch<MockData>("MOCK_DATA.json");
   const { handleScroll, offset, height, feeds } = useScroll(data);
+  console.log(feeds);
 
   return (
     <FeedContainerBlock onScroll={handleScroll}>
