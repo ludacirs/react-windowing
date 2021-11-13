@@ -1,11 +1,16 @@
 import React from "react";
-import ViewPort from "./components/ViewPort";
+import styled from "styled-components";
+import FeedContainer from "./components/FeedContainer";
+
+const AppBlock = styled.div`
+  padding: 12px;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <ViewPort />
-    </div>
+    <AppBlock className="App">
+      <FeedContainer />
+    </AppBlock>
   );
 }
 

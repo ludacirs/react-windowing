@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MockData } from "./ViewPort";
+import { MockData } from "./FeedContainer";
 
 const ItemBlock = styled.div`
   display: flex;
@@ -13,7 +13,11 @@ const ItemBlock = styled.div`
   margin: 10px;
 `;
 
-const Item = ({ id }: Partial<MockData>) => {
+interface ItemProps {
+  id: MockData["id"];
+}
+
+const Item = ({ id }: ItemProps) => {
   return (
     <ItemBlock>
       <div> id: {id}피드</div>
@@ -21,4 +25,4 @@ const Item = ({ id }: Partial<MockData>) => {
   );
 };
 
-export default Item;
+export default React.memo(Item);

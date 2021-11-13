@@ -1,25 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import { MockData } from "./FeedContainer";
 import Item from "./Item";
-import useFetch from "../hooks/useFetch";
 
-const ViewPortBlock = styled.div``;
+const ViewPortBlock = styled.div<Partial<ViewPortProps>>`
+  transform: translateY(${(props) => props.offset}px);
+  position: absolute;
+  border: solid 1px blue;
+`;
 
-export interface MockData {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  description: string;
+interface ViewPortProps {
+  data: MockData[];
+  offset: number;
 }
 
-const ViewPort = () => {
-  const [data] = useFetch<MockData>("MOCK_DATA.json");
-
+const ViewPort = ({ data, offset }: ViewPortProps) => {
   return (
-    <ViewPortBlock>
-      {data.map((props, index) => (
-        <Item key={props.id} id={index} />
+    <ViewPortBlock offset={offset}>
+      {data.map((item) => (
+        <Item key={item.id} id={item.id} />
       ))}
     </ViewPortBlock>
   );

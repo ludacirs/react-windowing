@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-const useFetch = <T>(URL: string) => {
+const useFetch = <T>(URL: string): [T[], Dispatch<SetStateAction<T[]>>] => {
   const [state, setState] = useState<T[]>([]);
 
   const fetchData = async () => {
     try {
       const response: Response = await fetch(URL);
       const data = await response.json();
-
       setState(data);
     } catch (e) {
       console.log(e);
@@ -18,7 +17,7 @@ const useFetch = <T>(URL: string) => {
     fetchData();
   }, []);
 
-  return [state];
+  return [state, setState];
 };
 
 export default useFetch;
